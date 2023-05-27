@@ -4,6 +4,7 @@ import org.apache.commons.lang.StringUtils;
 def call() {
     announce("Preparing dynamic parameters")
     
+    // readMavenPom requires Pipeline Utility steps plugin
     pom = readMavenPom file: "${JENKINS_APP_DIR}/pom.xml"
-    env.PROJECT_VERSION=pom.version
+    env.APP_VERSION=pom.version
 }

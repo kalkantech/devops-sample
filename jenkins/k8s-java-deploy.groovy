@@ -14,10 +14,10 @@ pipeline {
         stage('Prepare & Checkout') {
             steps {
                 stagePrepareArgo()
-                echo "${PROJECT_VERSION}"
+                echo "${APP_VERSION}"
                 sh '''
                     whoami
-                    echo ${PROJECT_VERSION}
+                    echo ${APP_VERSION}
                 '''
             }
             post {
@@ -52,23 +52,23 @@ pipeline {
                 }
             }
         }
-        // stage('Build Image & Deploy') {
-        //     steps {
-        //         stageBuildImage()
-        //     }
-        //     post {
-        //         success {
-        //             script {
-        //                 announce("Stage success")
-        //             }
-        //         }
-        //         failure {
-        //             script {
-        //                 announce("Pipeline failure")
-        //                 parametersLogging()
-        //             }
-        //         }
-        //     }
-        // }
+        stage('Build Image & Deploy') {
+            steps {
+                stageBuildImage()
+            }
+            post {
+                success {
+                    script {
+                        announce("Stage success")
+                    }
+                }
+                failure {
+                    script {
+                        announce("Pipeline failure")
+                        parametersLogging()
+                    }
+                }
+            }
+        }
     }
 }
