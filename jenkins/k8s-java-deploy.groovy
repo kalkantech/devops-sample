@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-// @Library('getir-jenkins-library')_
+@Library('jenkins-library')_
 
 
 pipeline {
