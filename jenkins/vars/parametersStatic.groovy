@@ -9,6 +9,7 @@ def call() {
     env.JAVA_JAR_NAME="demo-0.0.1-SNAPSHOT"
     env.DOCKER_FILE_PATH="Docker/Dockerfile"
     env.DOCKER_REPO_NAME="shield07"
+    
     withCredentials([usernamePassword(credentialsId: "docker", usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
         env.DOCKER_USER="${USERNAME}"
         env.DOCKER_USER_PASSWORD="${PASSWORD}"

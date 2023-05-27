@@ -14,8 +14,10 @@ pipeline {
         stage('Prepare & Checkout') {
             steps {
                 stagePrepareArgo()
+                echo "${PROJECT_VERSION}"
                 sh '''
                     whoami
+                    echo ${PROJECT_VERSION}
                 '''
             }
             post {

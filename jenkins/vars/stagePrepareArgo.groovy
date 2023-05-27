@@ -3,4 +3,5 @@
 def call() {
     parametersStatic()
     checkoutApp()
+    parametersDynamic()
 }
