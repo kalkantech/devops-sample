@@ -6,8 +6,8 @@
 pipeline {
     agent any
 
-    tools {
-    }
+    // tools {
+    // }
 
     stages {
         stage('Prepare & Checkout') {
