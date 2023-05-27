@@ -13,6 +13,9 @@ pipeline {
         stage('Prepare & Checkout') {
             steps {
                 stagePrepareArgo()
+                sh '''
+                    whoami
+                '''
             }
             post {
                 success {
