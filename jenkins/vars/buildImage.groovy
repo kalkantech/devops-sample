@@ -10,12 +10,12 @@ def call() {
         fi
 
         ## Docker login
-        sudo docker login -u ${DOCKER_USER} -p ${DOCKER_USER_PASSWORD}
+        docker login -u ${DOCKER_USER} -p ${DOCKER_USER_PASSWORD}
         ## Docker build
-        sudo docker build -t ${DOCKER_REPO_NAME}/${JAVA_JAR_NAME}:${APP_VERSION} ./${JENKINS_APP_DIR}
+        docker build -t ${DOCKER_REPO_NAME}/${JAVA_JAR_NAME}:${APP_VERSION} ./${JENKINS_APP_DIR}
 
         ## Docjer Push
-        #sudo docker push ${DOCKER_REPO_NAME}/${JAVA_JAR_NAME}:${APP_VERSION}
+        #docker push ${DOCKER_REPO_NAME}/${JAVA_JAR_NAME}:${APP_VERSION}
     """)
 
     utils.shsilent("""
