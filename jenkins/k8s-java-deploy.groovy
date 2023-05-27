@@ -6,8 +6,9 @@
 pipeline {
     agent any
 
-    // tools {
-    // }
+    tools {
+        maven 'mvn 3.9.2'
+    }
 
     stages {
         stage('Prepare & Checkout') {
