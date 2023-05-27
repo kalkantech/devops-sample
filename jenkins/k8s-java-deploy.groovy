@@ -21,6 +21,7 @@ pipeline {
                 success {
                     script {
                         announce("Stage success")
+                        parametersLogging()
                     }
                 }
                 failure {
