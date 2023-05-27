@@ -12,13 +12,13 @@ def call() {
         ## Docker login
         sudo docker login -u ${DOCKER_USER} -p ${DOCKER_USER_PASSWORD}
         ## Docker build
-        sudo docker build -t ${DOCKER_REPO_NAME}/${JENKINS_APP_NAME}:${APP_VERSION} ./${JENKINS_APP_DIR}
+        sudo docker build -t ${DOCKER_REPO_NAME}/${JAVA_JAR_NAME}:${APP_VERSION} ./${JENKINS_APP_DIR}
 
         ## Docjer Push
-        #sudo docker push ${DOCKER_REPO_NAME}/${JENKINS_APP_NAME}:${APP_VERSION}
+        #sudo docker push ${DOCKER_REPO_NAME}/${JAVA_JAR_NAME}:${APP_VERSION}
     """)
 
     utils.shsilent("""
-        echo Image : ${DOCKER_REPO_NAME}/${JENKINS_APP_NAME}:${APP_VERSION}
+        echo Image : ${DOCKER_REPO_NAME}/${JAVA_JAR_NAME}:${APP_VERSION}
     """)
 }
