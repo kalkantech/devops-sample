@@ -50,5 +50,23 @@ pipeline {
                 }
             }
         }
+        // stage('Build Image & Deploy') {
+        //     steps {
+        //         stageBuildImage()
+        //     }
+        //     post {
+        //         success {
+        //             script {
+        //                 announce("Stage success")
+        //             }
+        //         }
+        //         failure {
+        //             script {
+        //                 announce("Pipeline failure")
+        //                 parametersLogging()
+        //             }
+        //         }
+        //     }
+        // }
     }
 }
