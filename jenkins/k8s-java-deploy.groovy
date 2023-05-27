@@ -13,7 +13,7 @@ pipeline {
         stage('Prepare & Checkout') {
             steps {
                 script {
-                    // env.JENKINS_OPERATION="pipeline-java-image-deploy-ocp-prod"
+                    env.JENKINS_OPERATION="pipeline-java-image-deploy-ocp-prod"
                 }
                 // stagePrepare()
             }
