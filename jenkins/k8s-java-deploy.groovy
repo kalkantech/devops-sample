@@ -12,16 +12,30 @@ pipeline {
     stages {
         stage('Prepare & Checkout') {
             steps {
-                // script {
-                //     env.JENKINS_OPERATION="pipeline-java-image-deploy-ocp-prod"
-                // }
                 stagePrepareArgo()
             }
             post {
                 success {
                     script {
                         announce("Stage success")
+                    }
+                }
+                failure {
+                    script {
+                        announce("Pipeline failure")
                         parametersLogging()
+                    }
+                }
+            }
+        }
+        stage('Build Artifact') {
+            steps {
+                stageBuildArtifact()
+            }
+            post {
+                success {
+                    script {
+                        announce("Stage success")
                     }
                 }
                 failure {
