@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 
 def call() {
-    announce("OpenShift prod environment deployment using helm chart")
+    announce("Update ArgoCD Repo")
 
     //Prepare helm package
     utils.shsilent("""
