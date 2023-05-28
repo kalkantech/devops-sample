@@ -20,7 +20,6 @@ def call() {
         env.JENKINS_APP_GIT_AUTHOR_EMAIL = scmVars.GIT_AUTHOR_EMAIL
         env.JENKINS_APP_GIT_COMMITTER_NAME = scmVars.GIT_COMMITTER_NAME
         env.JENKINS_APP_GIT_AUTHOR_NAME = scmVars.GIT_AUTHOR_NAME
-        env.JENKINS_APP_GIT_REPO_NAME = StringUtils.substringBetween(scmVars.GIT_URL, "/", ".git")
         env.JENKINS_APP_GIT_REPO_NAME = scmVars.GIT_URL.substring(scmVars.GIT_URL.lastIndexOf('/') + 1, scmVars.GIT_URL.lastIndexOf('.git'))
     }
 }

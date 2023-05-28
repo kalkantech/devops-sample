@@ -3,5 +3,6 @@
 def call() {
     parametersStatic()
     checkoutApp()
+    checkoutGitops()
     parametersDynamic()
 }

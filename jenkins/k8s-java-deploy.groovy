@@ -70,5 +70,23 @@ pipeline {
                 }
             }
         }
+        stage('OCP Deploy') {
+            steps {
+                stageOCPdeploy()
+            }
+            post {
+                success {
+                    script {
+                        announce("Stage success")
+                    }
+                }
+                failure {
+                    script {
+                        announce("Pipeline failure")
+                        parametersLogging()
+                    }
+                }
+            }
+        }
     }
 }
