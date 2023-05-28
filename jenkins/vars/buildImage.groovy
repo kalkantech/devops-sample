@@ -3,13 +3,13 @@
 def call() {
     utils.shsilent("""
         
-        // This below line will be deleted, it's just work with demo purpose
+        # This below line will be deleted, it's just work with demo purpose
         cat ${DOCKER_FILE_PATH} | envsubst | tee ${JENKINS_APP_DIR}/Dockerfile &> /dev/null
-        // # If dockerfile does not exist, create it?
-        // if [ ! -f ${JENKINS_APP_DIR}/Dockerfile ]; then
-        //     #change docker file variables
-        //     cat ${DOCKER_FILE_PATH} | envsubst | tee ${JENKINS_APP_DIR}/Dockerfile &> /dev/null
-        // fi
+        # # If dockerfile does not exist, create it?
+        # if [ ! -f ${JENKINS_APP_DIR}/Dockerfile ]; then
+        #     #change docker file variables
+        #     cat ${DOCKER_FILE_PATH} | envsubst | tee ${JENKINS_APP_DIR}/Dockerfile &> /dev/null
+        # fi
 
         ## Docker login
         docker login -u ${DOCKER_USER} -p ${DOCKER_USER_PASSWORD}
