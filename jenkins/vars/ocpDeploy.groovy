@@ -15,12 +15,12 @@ def call() {
             usernameVariable: 'username',
             passwordVariable: 'password')]){
                 sh '''
-                    git add values/*; git commit -m "New release for ${JENKINS_APP_GIT_REPO_NAME}"; git push http://$username:$password@$GITOPS_PUSH_REPO ${GITOPS_REPO_BRANCH};
+                    git remote set-url --add --push origin https://$username:$password@$GITOPS_PUSH_REPO
                 '''
         }
         // sh 'git remote set-url --add --push origin https://$GIT_CREDS@$GITOPS_PUSH_REPO'
-        // sh("""
-        //         git add values/*; git commit -m "New release for ${JENKINS_APP_GIT_REPO_NAME}"; git push origin ${GITOPS_REPO_BRANCH};
-        // """)
+        sh("""
+                git add values/*; git commit -m "New release for ${JENKINS_APP_GIT_REPO_NAME}"; git push origin ${GITOPS_REPO_BRANCH} --force;
+        """)
     }
 }
