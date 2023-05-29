@@ -9,7 +9,7 @@ def call() {
     dir("${GITOPS_DIR}") {
         def scmVars = checkout([$class: 'GitSCM',
         branches: [[name: "*/${GITOPS_REPO_BRANCH}"]],
-        userRemoteConfigs: [[url: "${GITOPS_REPO}"]]])
+        userRemoteConfigs: [[credentialsId: 'github-cred',url: "${GITOPS_REPO}"]]])
 
         env.GITOPS_BRANCH = scmVars.GIT_BRANCH
         env.GITOPS_COMMIT = scmVars.GIT_COMMIT
