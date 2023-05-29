@@ -24,5 +24,6 @@ def call() {
         env.GITOPS_REPO_NAME = scmVars.GIT_URL.substring(scmVars.GIT_URL.lastIndexOf('/') + 1, scmVars.GIT_URL.lastIndexOf('.git'))
         sh 'git fetch origin'
         sh 'git checkout $GITOPS_REPO_BRANCH'
+        sh 'git pull origin $GITOPS_REPO_BRANCH'
     }
 }
