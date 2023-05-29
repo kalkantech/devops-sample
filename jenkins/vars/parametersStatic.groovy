@@ -12,7 +12,7 @@ def call() {
     env.GITOPS_REPO="https://github.com/kalkantech/gitops-sample.git"
     env.GITOPS_PUSH_REPO="github.com/kalkantech/gitops-sample.git"
     env.GITOPS_REPO_BRANCH="main"
-    env.GIT_CREDS = credentials("github-cred")
+    env.GIT_CREDS=credentials("github-cred")
     env.GITOPS_DIR=GITOPS_REPO.substring(GITOPS_REPO.lastIndexOf('/') + 1, GITOPS_REPO.lastIndexOf('.git'))
     withCredentials([usernamePassword(credentialsId: "docker", usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
         env.DOCKER_USER="${USERNAME}"
