@@ -12,7 +12,9 @@ def call() {
     """)
     dir("${GITOPS_DIR}") {
         sh("""
-                git add values/*; git commit -m "New release for ${JENKINS_APP_GIT_REPO_NAME}"; git push origin ${GITOPS_REPO_BRANCH} --force;
+                pwd
+                ls
+                git add values/*; git commit -m "New release for ${JENKINS_APP_GIT_REPO_NAME}"; git push origin ${GITOPS_REPO_BRANCH};
         """)
     }
 }
