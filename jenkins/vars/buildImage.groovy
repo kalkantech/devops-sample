@@ -17,7 +17,7 @@ def call() {
         docker build -t ${DOCKER_REPO_NAME}/${JAVA_JAR_NAME}:${APP_VERSION} ./${JENKINS_APP_DIR}
 
         ## Docjer Push
-        #docker push ${DOCKER_REPO_NAME}/${JAVA_JAR_NAME}:${APP_VERSION}
+        docker push ${DOCKER_REPO_NAME}/${JAVA_JAR_NAME}:${APP_VERSION}
     """)
 
     utils.shsilent("""
