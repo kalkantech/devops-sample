@@ -22,5 +22,7 @@ def call() {
         env.GITOPS_AUTHOR_NAME = scmVars.GIT_AUTHOR_NAME
         env.GITOPS_REPO_NAME = StringUtils.substringBetween(scmVars.GIT_URL, "/", ".git")
         env.GITOPS_REPO_NAME = scmVars.GIT_URL.substring(scmVars.GIT_URL.lastIndexOf('/') + 1, scmVars.GIT_URL.lastIndexOf('.git'))
+        sh 'git fetch origin'
+        sh 'git checkout $GITOPS_REPO_BRANCH'
     }
 }
