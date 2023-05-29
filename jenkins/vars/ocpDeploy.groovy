@@ -12,8 +12,7 @@ def call() {
     """)
     dir("${GITOPS_DIR}") {
         sh("""
-                pwd
-                ls
+                git remote set-url --add --push origin https://${GIT_CREDS}@${GITOPS_PUSH_REPO}
                 git add values/*; git commit -m "New release for ${JENKINS_APP_GIT_REPO_NAME}"; git push origin ${GITOPS_REPO_BRANCH};
         """)
     }
